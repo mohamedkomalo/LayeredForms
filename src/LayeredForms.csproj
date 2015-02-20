@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A2ED056F-A0C7-4B9D-AC2F-EE3EA1981E41}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LayeredForms</RootNamespace>
+    <AssemblyName>LayeredForms</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Blur\BlurDrawerProvider.cs" />
+    <Compile Include="Blur\FastBlurDrawer.cs" />
+    <Compile Include="Blur\GDIPlusBlurDrawer.cs" />
+    <Compile Include="Blur\IBlurDrawer.cs" />
+    <Compile Include="Blur\ImageTools.cs" />
+    <Compile Include="ButtonState.cs" />
+    <Compile Include="LayeredControl.cs" />
+    <Compile Include="LayeredForm.cs" />
+    <Compile Include="LayeredLabel.cs" />
+    <Compile Include="LayeredImageButton.cs" />
+    <Compile Include="LayeredIcon.cs" />
+    <Compile Include="LayeredPopupMenu.cs" />
+    <Compile Include="LayeredPopupMenuItem.cs" />
+    <Compile Include="LayeredTextbox.cs" />
+    <Compile Include="LayeredButton.cs" />
+    <Compile Include="LayeredTextboxWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities\GraphicsImage.cs" />
+    <Compile Include="Utilities\ImageRenderer.cs" />
+    <Compile Include="Utilities\ImageWithDeviceContext.cs" />
+    <Compile Include="Utilities\LayeredWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities\NativeMethods.cs" />
+    <Compile Include="Utilities\TitleRenderer.cs" />
+    <Compile Include="VerticalAlignment.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WinApiWrappers\src\WinApiWrappers.csproj">
+      <Project>{60188886-9116-4aac-9ec6-74b9d9c46df9}</Project>
+      <Name>WinApiWrappers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
